@@ -1,0 +1,39 @@
+  [{
+  "_id": {
+    "$oid": "6405ca74be166d3ee0f7693c"
+  },
+  "email": "tony@stark.com",
+  "password": "$2b$12$CV30S2zWwFY5XQ8vJUyVxe0451BsVYs1cFBKAd05dBCyPfBSZ6UkG",
+  "firstName": "Tony",
+  "lastName": "Stark",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1678101108848"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1678101108848"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6405ca74be166d3ee0f7693d"
+  },
+  "email": "steve@rogers.com",
+  "password": "$2b$12$I.DkFAQfcl9HsR.FIiQJpO0FaoTq6PcCODDlCSreILrSjyVaXocOW",
+  "firstName": "Steve",
+  "lastName": "Rogers",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1678101108868"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1678101108868"
+    }
+  },
+  "__v": 0
+}]

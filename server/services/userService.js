@@ -74,6 +74,8 @@ module.exports.loginUser = async serviceData => {
 module.exports.updateUserProfile = async serviceData => {
   try {
     const jwtToken = serviceData.headers.authorization.split('Bearer')[1].trim()
+    console.log("Mique -- token")
+    console.log("jwtToken : " + jwtToken)
     const decodedJwtToken = jwt.decode(jwtToken)
     const user = await User.findOneAndUpdate(
       { _id: decodedJwtToken.id },

@@ -19,8 +19,10 @@ body {
 
 .bg-dark {
   background-color: #12002b;
-  
+  padding-top: 5px;/* modif*/
+  padding-bottom: 20%;/* modif*/
 }
+
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
@@ -71,7 +73,7 @@ body {
 }
 
 .hero {
-  background-image: url('../img/bank-tree.jpeg');
+  background-image: url('./assets/bank-tree.jpeg');
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -175,7 +177,7 @@ body {
 }
 
 .sign-in-icon {
-  font-size: 5rem;
+  font-size: 1rem; /* modif*/
 }
 
 .input-remember {
@@ -288,4 +290,45 @@ body {
   .transaction-button {
     width: 200px;
   }
+}
+
+.input-container{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+
+}
+.input-username{
+  margin-right: 20px;
+}
+#lastname, #username{
+  padding: 10px;
+  color: #222;
+  font-size: 16px;
+  font-weight: 700;
+}
+.container-save-cancel{
+  display: flex;
+  width: 100%;
+  justify-content:center;
+  margin: auto;
+  margin-top: 15px;
+  
+}
+#input-save, #input-cancel{
+  width: 120px;
+  padding:8px 30px 8px 30px;
+  text-align: center;
+  border:  solid #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 16px;  
+}
+#input-save{
+  margin-right: 20px;
+}
+.message_error{
+  color: red;
+  font-size: 14px;
 }
