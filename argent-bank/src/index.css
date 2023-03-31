@@ -19,8 +19,8 @@ body {
 
 .bg-dark {
   background-color: #12002b;
-  padding-top: 5px;/* modif*/
-  padding-bottom: 20%;/* modif*/
+  padding-top: 5px;
+  padding-bottom: 20%;
 }
 
 .sr-only {
@@ -177,7 +177,7 @@ body {
 }
 
 .sign-in-icon {
-  font-size: 1rem; /* modif*/
+  font-size: 1rem; 
 }
 
 .input-remember {
@@ -331,4 +331,18 @@ body {
 .message_error{
   color: red;
   font-size: 14px;
+}
+
+@media (max-width: 720px) {
+ .main-nav-item {
+    text-decoration: none;
+    margin-right: 0rem;
+    width: 100px;
+    display: block;
+}
+.main-nav-logo {
+  display: unset; 
+  align-items: unset;
+  margin-left: -20px;
+}
 }

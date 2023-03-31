@@ -71,15 +71,6 @@ export const setProfile = createAsyncThunk(
     }
 )
 
-
-// export const setMessageError = createAsyncThunk({
-//     'user/messageError'
-//     async(dataError, thunkAPI)
-// })
-// ------------------------------------------
-// Slice : user
-// ------------------------------------------
-
 const userSlice = createSlice({
     name: 'user',
     initialState,
@@ -90,12 +81,6 @@ const userSlice = createSlice({
             state = initialState
             return state // pourquoi faut-il retourner le "state" pour qu'il soit pris en compte ? 
         }
-        // editUser:(state, action) =>{
-        //     state = false
-        // },
-
-
-      
     },
     extraReducers: (builder) => {
         // ----------------------------------------------------------------------------
@@ -103,7 +88,6 @@ const userSlice = createSlice({
         // ----------------------------------------------------------------------------
         builder.addCase(signIn.pending, (state, action) => {
             state.api_login = 'pending'
-            // console.log('pending',  state.errorMessage)
             state.errorMessage = false
         })
         builder.addCase(signIn.fulfilled, (state, action) => {
