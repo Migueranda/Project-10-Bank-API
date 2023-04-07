@@ -13,8 +13,11 @@ function EditName(){
     const firstName =  useSelector((state) => state.user.firstName)
     const lastName =  useSelector((state) => state.user.lastName)
     const profileChanged = useSelector((state) => state.user.profileChanged)
+    const errorMessage = useSelector((state) => state.user.errorMessage);
+    
 
     const [editUserName, setEditUserName] = useState(false)
+    
     const dispatch = useDispatch()
 
     // gère le  sauvegarde de donné via le boutton "Save" du formulaire
@@ -62,30 +65,40 @@ function EditName(){
             <div className="header">
                 { !editUserName ? ( // Edition des informations de l'utilisateur : FALSE
                 <div>
-                    <h1>Welcome back<br />{firstName} {lastName}</h1>                                   
-                    <button className="edit-button" onClick={handleEditName}>Edit Name</button>
+                    <h1>Welcome back<br />{firstName} {lastName}</h1>   
+                    {errorMessage ? (
+                        <p className="message_error">* {errorMessage} </p>
+                    ):(
+                        <button className="edit-button" onClick={handleEditName}>Edit Name</button>
+                    )}                                  
                 </div>
                 ):( // Edition des informations de l'utilisateur : TRUE
                 <form>
                     <h1>Welcome back<br /></h1>
-                    <div className="input-container">
-                        <div className='input-username'>
-                            <label htmlFor="username"></label>
-                            <input type="text" id="username" defaultValue={firstName}/>
-                        </div>                         
-                        <div className='input-lastName'>
-                            <label htmlFor="lastname"></label>
-                            <input type="lastname" id="lastname" defaultValue={lastName}/>
-                        </div>
-                    </div>
-                    <div className='container-save-cancel'>
-                        <div className="input-save">
-                            <button id='input-save' onClick={handleSave} >save</button>
-                        </div>
-                        <div className="input-cancel">
-                            <button id='input-cancel' onClick={handleCancel}>Cancel</button>
-                        </div> 
-                    </div>    
+                    {errorMessage ? (
+                        <p className="message_error">* {errorMessage} </p>
+                    ):(
+                        <p>
+                            <div className="input-container">
+                                <div className='input-username'>
+                                    <label htmlFor="username"></label>
+                                    <input type="text" id="username" defaultValue={firstName}/>
+                                </div>                         
+                                <div className='input-lastName'>
+                                    <label htmlFor="lastname"></label>
+                                    <input type="lastname" id="lastname" defaultValue={lastName}/>
+                                </div>
+                            </div>
+                            <div className='container-save-cancel'>
+                                <div className="input-save">
+                                    <button id='input-save' onClick={handleSave} >save</button>
+                                </div>
+                                <div className="input-cancel">
+                                    <button id='input-cancel' onClick={handleCancel}>Cancel</button>
+                                </div> 
+                            </div>
+                        </p>
+                    )}      
                  </form>
                 )}           
             </div> 

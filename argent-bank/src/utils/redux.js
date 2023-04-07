@@ -91,6 +91,7 @@ const userSlice = createSlice({
             if( action.payload.status === 200 ){
                 state.signedIn = true
                 state.token = action.payload.body.token
+                console.log(state.token);
             }
             // Erreur
             if( action.payload.status === 400 ){                
@@ -106,6 +107,7 @@ const userSlice = createSlice({
         builder.addCase(getProfile.pending, (state, action) => {
             state.api_profil = 'pending'
             state.getProfileExec = true
+            state.errorMessage = false
         })
         builder.addCase(getProfile.fulfilled, (state, action) => {
             state.api_profil = 'fulfilled'
@@ -115,6 +117,8 @@ const userSlice = createSlice({
                 state.firstName =  action.payload.body.firstName
                 state.lastName =  action.payload.body.lastName   
                 state.editUserName = true   
+            }else{ // Erreur             
+                state.errorMessage = 'Impossible to fetch profile'               
             }
         })
         builder.addCase(getProfile.rejected, (state, action) => {
@@ -125,6 +129,7 @@ const userSlice = createSlice({
         // ----------------------------------------------------------------------------
         builder.addCase(setProfile.pending, (state, action) => {
             state.profileChanged = false 
+            state.errorMessage = false
         })
 
         builder.addCase(setProfile.fulfilled, (state, action) => {
@@ -134,6 +139,8 @@ const userSlice = createSlice({
                 state.firstName =  action.payload.body.firstName
                 state.lastName =  action.payload.body.lastName   
                 state.profileChanged = true   
+            }else{ // Erreur
+                state.errorMessage = 'Impossible to modify profile'               
             }
         })
 

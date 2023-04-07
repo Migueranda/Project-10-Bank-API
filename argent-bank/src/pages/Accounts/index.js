@@ -10,13 +10,11 @@ function Accounts(){
     const navigate = useNavigate()
 
     // sécurtié : afin d'empécher un visiteur non identifié de visualiser la page transaction
-    useEffect(()  => {   
-        if ( isLogged === false){
-            navigate('/SigninPage')
-        }
-        }, 
-        [] 
-    )
+    useEffect(() => {   
+            if ( isLogged === false){
+                navigate('/SigninPage')
+            }
+        }, [])
 
     // Argent Bank Checking
     let titleBankChecking  = ' Argent Bank Checking (x8349)'
