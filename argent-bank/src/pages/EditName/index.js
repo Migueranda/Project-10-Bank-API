@@ -20,7 +20,7 @@ function EditName(){
     // gère le  sauvegarde de donné via le boutton "Save" du formulaire
     const handleSave = (event) => {
         event.preventDefault(); 
-    // récupération des informations du formulaire
+        // récupération des informations du formulaire
         const userData = {
             firstName: event.target.form[0].value, // username
             lastName: event.target.form[1].value,
@@ -29,12 +29,12 @@ function EditName(){
         dispatch(setProfile(userData));       
     } 
 
-    // gère le defaultValue du champ input
+    // Cancel Edit => revient en mode affichage du prénom/nom de l'utilisateur
     const handleCancel = (event) => {
         event.preventDefault();
         setEditUserName(false)
     }
-     // gère le bouton "Edit Name"
+     // click sur bouton "edit" => affichage du formulaire pour éditer le profil nom/prénom
     const handleEditName = (event) => {
         event.preventDefault();
         setEditUserName(true)
