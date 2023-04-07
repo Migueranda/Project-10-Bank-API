@@ -339,10 +339,25 @@ body {
     margin-right: 0rem;
     width: 100px;
     display: block;
-}
-.main-nav-logo {
+  }
+  .main-nav-logo {
   display: unset; 
   align-items: unset;
   margin-left: -20px;
+  }
+  #lastname, #username{
+    /* padding: 10px;
+    color: #222;
+    font-size: 16px;
+    font-weight: 700; */
+    width: 90%;
+  }
+  .input-container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    width: 90%;
 }
+  
+
 }

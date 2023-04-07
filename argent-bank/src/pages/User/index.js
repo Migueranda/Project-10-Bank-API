@@ -8,6 +8,7 @@ import { store } from "../../utils/redux";
 
 
 function User( ){
+
     return(
         <Provider store={store}>
             <div>

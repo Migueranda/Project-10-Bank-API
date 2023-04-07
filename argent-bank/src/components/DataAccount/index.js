@@ -1,5 +1,4 @@
 
-
 function DataAccount({ title, amount, description, transactions }){
     return(
         <div>
@@ -10,7 +9,7 @@ function DataAccount({ title, amount, description, transactions }){
                     <p className="account-amount-description">{description}</p>
                 </div>
                 <div className="account-content-wrapper cta">
-                <button className="transaction-button">{transactions}</button>
+                    <button className="transaction-button">{transactions}</button>
                 </div>
             </section>
         </div>

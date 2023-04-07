@@ -33,7 +33,6 @@ export const signIn = createAsyncThunk(
         return data   
     }
 )
-
 // -------------------------------------------
 // API : User profile
 // -------------------------------------------
@@ -56,9 +55,6 @@ export const getProfile = createAsyncThunk(
 export const setProfile = createAsyncThunk(
     'user/editName',
     async(userData, thunkAPI) => {
-        console.log('user data name')     
-        console.log(userData.firstName, userData.lastName)
-        console.log('Json chaine de caractère',JSON.stringify({ firstName: userData.firstName, lastName: userData.lastName}))
         const response = await fetch(`${apiBaseUrl}/profile`,
         {
             method: 'Put',
@@ -66,7 +62,6 @@ export const setProfile = createAsyncThunk(
             body: JSON.stringify({ firstName: userData.firstName, lastName: userData.lastName})
         })        
         const data = response.json()
-        console.log('first data set profile', data)
         return data
     }
 )
@@ -77,7 +72,6 @@ const userSlice = createSlice({
     reducers: {
         // action sign out de l'utilisateur
          signOut: (state, action) => {
-            console.log("-- signOut")
             state = initialState
             return state // pourquoi faut-il retourner le "state" pour qu'il soit pris en compte ? 
         }
@@ -92,16 +86,15 @@ const userSlice = createSlice({
         })
         builder.addCase(signIn.fulfilled, (state, action) => {
             state.api_login = 'fulfilled'
+
             // Succès
             if( action.payload.status === 200 ){
                 state.signedIn = true
                 state.token = action.payload.body.token
             }
             // Erreur
-            if( action.payload.status === 400 ){
-                
-                state.errorMessage = 'Username or Password invalid'
-               
+            if( action.payload.status === 400 ){                
+                state.errorMessage = 'Username or Password invalid'               
             }
         })
         builder.addCase(signIn.rejected, (state, action) => {
@@ -127,7 +120,6 @@ const userSlice = createSlice({
         builder.addCase(getProfile.rejected, (state, action) => {
             state.api_profil = 'rejected'
         })
-
         // ----------------------------------------------------------------------------
         // -- Intégration de l'action externe editUsername dans la slice user -----------
         // ----------------------------------------------------------------------------
@@ -152,10 +144,9 @@ const userSlice = createSlice({
 });
 
 export const {signOut} = userSlice.actions
-export const {editUser} = userSlice.actions
 
 export const store = configureStore({
     reducer: {
         user: userSlice.reducer
-    }
+    }   
 })

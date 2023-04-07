@@ -1,8 +1,8 @@
 
-function featureData({iconName, title, content}){
+function FeatureData({iconName, title, content}){
     return(
        <section >
-        <h2 className="sr-only">Features</h2>
+            <h2 className="sr-only">Features</h2>
             <div className="feature-item">
                 <img src={iconName} alt="Chat Icon" className="feature-icon" />
                 <h3 className="feature-item-title">{title}</h3>
@@ -11,4 +11,4 @@ function featureData({iconName, title, content}){
        </section> 
     )    
 }
-export default featureData
+export default FeatureData

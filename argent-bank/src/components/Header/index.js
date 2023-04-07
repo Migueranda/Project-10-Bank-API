@@ -12,7 +12,7 @@ function Header({ icon }){
     const navigate = useNavigate();
     const signedIn = useSelector((state) => state.user.signedIn);
     const firstName = useSelector((state) => state.user.firstName);
-
+    
     const handleClick = (event) => {
         event.preventDefault(); 
         dispatch(signOut());

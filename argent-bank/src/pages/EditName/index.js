@@ -48,8 +48,7 @@ function EditName(){
 
         if(profileChanged){
             setEditUserName(false) 
-        }
-                
+        }                
         
     }, [ profileChanged])  
 

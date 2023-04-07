@@ -1,6 +1,22 @@
 import DataAccount from '../../components/DataAccount'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react';
+
 
 function Accounts(){
+
+    const isLogged = useSelector((state) => state.user.signedIn)
+    const navigate = useNavigate()
+
+    // sécurtié : afin d'empécher un visiteur non identifié de visualiser la page transaction
+    useEffect(()  => {   
+        if ( isLogged === false){
+            navigate('/SigninPage')
+        }
+        }, 
+        [] 
+    )
 
     // Argent Bank Checking
     let titleBankChecking  = ' Argent Bank Checking (x8349)'
